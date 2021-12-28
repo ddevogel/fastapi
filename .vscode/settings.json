@@ -1,0 +1,16 @@
+{
+    "cSpell.words": [
+        "disp",
+        "ithing",
+        "pydantic",
+        "uvicorn"
+    ],
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true
+}

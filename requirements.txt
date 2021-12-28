@@ -1,0 +1,6 @@
+fastapi==0.70.1
+pydantic==1.8.2
+pydantic_sqlalchemy==0.0.9
+PyJWT==2.3.0
+pytest==6.2.5
+SQLAlchemy==1.4.29
