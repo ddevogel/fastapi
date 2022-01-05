@@ -1,5 +1,6 @@
 import json
 from io import StringIO
+from config import Config
 # from data.database import Database
 # from data.models import *
 # from data.view_models import *
@@ -9,6 +10,12 @@ from io import StringIO
 #     for album in albums:
 #         print(album)
 #     raise SystemExit(1)
+
+
+def test_env():
+    c = Config(".env")
+    v = c("DATABASE_URI")
+    assert v == 3
 
 
 def test_map():
