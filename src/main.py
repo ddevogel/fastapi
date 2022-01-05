@@ -3,9 +3,8 @@ from contextvars import ContextVar
 from typing import Final, Optional
 from uuid import uuid1
 
-from fastapi import Depends, FastAPI, Header, HTTPException, Request
+from fastapi import Depends, FastAPI, Header, Request
 from sqlalchemy.orm import scoped_session
-# from starlette.datastructures import State
 from starlette.middleware.cors import CORSMiddleware
 
 from dependencies import get_state, verify_token, check_404
