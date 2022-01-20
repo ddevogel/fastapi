@@ -2,3 +2,5 @@ __junk/*
 __pycache__
 
 **/.hypothesis/*
+.coverage
+tests/test_one.py
