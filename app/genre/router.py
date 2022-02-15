@@ -1,13 +1,13 @@
-from fastapi import APIRouter, Depends, HTTPException, Response
-from .views import GenreView
+from fastapi import APIRouter, Depends, Response
 
+from ..dependencies import check_404, get_state
 from .service import get_genre_view, merge_genre
-from ..dependencies import check_404, get_state, verify_token
+from .views import GenreView
 
 genres = APIRouter(
     prefix="/genres",
     tags=["genres"],
-    dependencies=[Depends(verify_token)],
+    dependencies=[],
     responses={404: {"description": "Not found"}},
 )
 

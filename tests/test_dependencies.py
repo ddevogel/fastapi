@@ -35,4 +35,3 @@ def test_check_404_exception_empty_response():
         check_404(None)
     assert e.value.status_code == 404
     assert e.value.detail == "Item not found"
-

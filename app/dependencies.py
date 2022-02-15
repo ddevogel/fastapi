@@ -1,7 +1,12 @@
-from typing import Optional, Final
 from contextvars import ContextVar
-from fastapi import Request, HTTPException, Header
+from datetime import timedelta
+from typing import Final, Optional
+
+from fastapi import Header, HTTPException, Request
 from starlette.datastructures import State
+
+from app.auth.service import build_access_token
+from app.auth.views import UserInDB
 
 
 class RequestIdContext:
@@ -9,7 +14,8 @@ class RequestIdContext:
 
     def __init__(self):
         self.__request_id_ctx_var: ContextVar[Optional[str]] = ContextVar(
-            self.__REQUEST_ID_CTX_KEY, default=None)
+            self.__REQUEST_ID_CTX_KEY, default=None
+        )
         self.__token = None
 
     def get_request_id(self) -> Optional[str]:
@@ -26,14 +32,12 @@ def get_state(request: Request) -> State:
     return request.state
 
 
-async def verify_token(auth_token: str = Header(...)):
-    # pass
-    if auth_token != "secret":
-        raise HTTPException(status_code=401, detail="auth_token header invalid")
+def create_access_token(user: UserInDB):
+    return build_access_token(user)
 
 
 def check_404(value):
-    if(value is None):
+    if value is None:
         raise HTTPException(status_code=404, detail="Item not found")
     else:
         return value

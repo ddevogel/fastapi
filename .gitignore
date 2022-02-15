@@ -4,3 +4,5 @@ __pycache__
 **/.hypothesis/*
 .coverage
 tests/test_one.py
+.env
+app/main_auth.py
